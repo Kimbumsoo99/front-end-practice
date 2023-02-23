@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Document</title>
     <style>
-      input {
+      /* input {
         text-align: center;
         position: absolute;
         right: 50%;
@@ -12,11 +12,23 @@
         background-color: #dddddddd;
         cursor: pointer;
         border: 0px;
-      }
+      } */
     </style>
   </head>
   <body>
+    <a href="https://www.naver.com"><input type="button" value="네이버로" /></a>
     <input type="button" onclick="location.reload()" value="새로고침" />
-    <script src="changeBg.js"></script>
+    <!-- <script src="changeBg.js"></script> -->
+    <script>
+      const random = (number) => {
+        return Math.floor(Math.random() * number);
+      };
+
+      const bgChange = () => {
+        const rndCol = `rgb(${random(255)},${random(255)},${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      };
+      //  bgChange();
+    </script>
   </body>
 </html>
