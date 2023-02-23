@@ -39,7 +39,12 @@ console.log(member);
 //Boolean()
 
 //섭씨화씨
-const tempF = prompt("현재 온도는?(화씨)");
-let tempC = ((parseFloat(tempF) - 32) / 1.8).toFixed(1);
+//const tempF = prompt("현재 온도는?(화씨)");
+//let tempC = ((parseFloat(tempF) - 32) / 1.8).toFixed(1);
 //.toFixed(1) 은 소수점 조정
-alert(`화씨온도 ${tempF}도는 섭씨 ${tempC}도 입니다.`);
+//alert(`화씨온도 ${tempF}도는 섭씨 ${tempC}도 입니다.`);
+
+//인치 cm 변환
+const inch = parseFloat(prompt("인치 값을 입력하세요."));
+const cm = (inch * 2.54).toFixed(2);
+alert(`${inch}인치는 변환하면 ${cm}cm 입니다.`);
