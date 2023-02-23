@@ -6,14 +6,16 @@
   </head>
   <body>
     <p>text 1</p>
-    <a href="https://www.gilbut.co.kr">길벗</a
-    ><!--
-    --><a href="https://www.naver.com">네이버</a>
     <script>
       const childNodes = document.body.childNodes;
-      childNodes.forEach((node) => {
-        console.log(node);
-      });
+      const img = document.createElement("img");
+      img.alt = "img";
+      document.body.appendChild(img);
+      console.log(img);
+      const hrefAttr = document.createElement("a");
+      hrefAttr.innerText = "가나다";
+      hrefAttr.href = " https://www.gilbut.co.kr";
+      document.body.appendChild(hrefAttr);
     </script>
   </body>
 </html>
