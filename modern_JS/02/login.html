@@ -48,8 +48,8 @@
 
       const handleFormEvent = (event) => {
         event.preventDefault();
-        usernameText = username.value;
-        passwordText = password.value;
+        const usernameText = username.value;
+        const passwordText = password.value;
         let isSubmit = true;
 
         if (usernameText === "") {
