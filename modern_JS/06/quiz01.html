@@ -22,5 +22,15 @@
       <h1>마우스 오버하면 이미지 바꾸기</h1>
       <img src="images/pic-1.jpg" alt="" />
     </div>
+    <script>
+      const container = document.querySelector("#container");
+      const img = document.querySelector("#container img");
+      img.addEventListener("mouseover", () => {
+        img.src = `images/pic-6.jpg`;
+      });
+      img.addEventListener("mouseout", () => {
+        img.src = `images/pic-1.jpg`;
+      });
+    </script>
   </body>
 </html>
