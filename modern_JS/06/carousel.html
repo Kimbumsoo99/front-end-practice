@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>캐러셀 만들기</title>
+    <link rel="stylesheet" href="css/carousel.css" />
+  </head>
+  <body>
+    <p>좌우 화살표를 눌러 보세요</p>
+    <div id="container">
+      <div class="arrow" id="left">&lang;</div>
+      <div class="arrow" id="right">&rang;</div>
+    </div>
+    <script>
+      const container = document.getElementById("container");
+
+      const pics = [
+        "pic-1.jpg",
+        "pic-2.jpg",
+        "pic-3.jpg",
+        "pic-4.jpg",
+        "pic-5.jpg",
+      ];
+
+      container.style.backgroundImage = `url(images/${pics[0]})`;
+      const arrows = document.querySelectorAll(".arrow");
+      let i = 0;
+      arrows.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+          console.log(i);
+          if (e.target.id === "left") {
+            i--;
+            if (i < 0) i = pics.length - 1;
+          } else if (e.target.id == "right") {
+            i++;
+            if (i >= pics.length) i = 0;
+          }
+          container.style.backgroundImage = `url(images/${pics[i]})`;
+        });
+      });
+    </script>
+  </body>
+</html>
