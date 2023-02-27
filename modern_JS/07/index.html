@@ -34,9 +34,21 @@
           let BtnValue = document.createAttribute("value");
           BtnType.value = "button";
           BtnValue.value = "취소하기";
-          document.getElementById("container").appendChild(newBtn);
           newBtn.setAttributeNode(BtnType);
           newBtn.setAttributeNode(BtnValue);
+
+          const topNode = document.querySelector("#container");
+          const inputNode = document.querySelectorAll("#container input")[0];
+
+          const tsNode = document.createElement("p");
+          const tsTextNode = document.createTextNode("Typescript");
+          //tsNode.appendChild(tsTextNode);
+          //console.log(topNode);
+          //console.log(topNode.length);
+          //console.log(topNode[topNode.length - 1]);
+          //console.log(inputNode[0]);
+          //console.log(inputNode);
+          topNode.insertBefore(newBtn, inputNode);
         },
         { once: true }
       );
