@@ -11,9 +11,8 @@
       <p>한 권으로 끝내는 웹 기본 교과서</p>
       <p>코딩 왕초보도 OK! 기초부터 활용까지 완벽 정복</p>
       <input type="button" value="주문하기" id="order" />
-      <hr />
     </div>
-
+    <hr />
     <div id="order-info"></div>
     <script>
       const orderButton = document.querySelector("#order");
@@ -29,6 +28,15 @@
           newP.style.fontSize = "0.8em";
           newP.style.color = "blue";
           orderInfo.appendChild(newP);
+          //속성 노드 연습
+          let newBtn = document.createElement("input");
+          let BtnType = document.createAttribute("type");
+          let BtnValue = document.createAttribute("value");
+          BtnType.value = "button";
+          BtnValue.value = "취소하기";
+          document.getElementById("container").appendChild(newBtn);
+          newBtn.setAttributeNode(BtnType);
+          newBtn.setAttributeNode(BtnValue);
         },
         { once: true }
       );
