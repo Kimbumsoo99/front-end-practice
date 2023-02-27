@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>연습문제 2</title>  
-  <link rel="stylesheet" href="css/quiz-2.css">
-</head>
-<body>
-  <div id="noti-box"></div>
-  <button id="bttn">클릭!</button>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 2</title>
+    <link rel="stylesheet" href="css/quiz-2.css" />
+  </head>
+  <body>
+    <div id="noti-box"></div>
+    <button id="bttn">클릭!</button>
+  </body>
+  <script>
+    const messageArea = document.getElementById("noti-box");
+    const btn = document.getElementById("bttn");
+
+    btn.addEventListener("click", () => {
+      const msgArea = document.createElement("div");
+      const areaClass = document.createAttribute("class");
+      const msgText = document.createTextNode("알림 내용이 표시됩니다.");
+      areaClass.value = "noti";
+      msgArea.setAttributeNode(areaClass);
+      msgArea.appendChild(msgText);
+      messageArea.appendChild(msgArea);
+      setTimeout(() => {
+        msgArea.remove();
+      }, 3000);
+    });
+  </script>
 </html>
