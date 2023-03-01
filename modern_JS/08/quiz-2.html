@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>당첨자 발표</title>
-    <link rel="stylesheet" href="css/solution-2.css">
+    <link rel="stylesheet" href="css/solution-2.css" />
   </head>
-  <body>    
+  <body>
     <div id="container">
       <h1>당첨자 발표</h1>
       <form>
-        <label>전체 <input type="text" id="seed">명 중에서</label>
-        <label><input type="text" id="total">명 뽑기</label>
+        <label>전체 <input type="text" id="seed" />명 중에서</label>
+        <label><input type="text" id="total" />명 뽑기</label>
         <button type="submit" id="raffle">추첨</button>
         <button type="reset" id="clear">지우기</button>
       </form>
       <div id="result"></div>
     </div>
+    <script>
+      const seed = document.getElementById("seed");
+      const total = document.getElementById("total");
+      const raffle = document.getElementById("raffle");
+      const clear = document.getElementById("clear");
+      const result = document.getElementById("result");
+      const handleRaffle = (e) => {
+        e.preventDefault();
+        let good = "";
+        const maxNum = seed.value;
+        const goodNum = total.value;
+        console.log(goodNum);
+        for (let i = 0; i < goodNum; i++) {
+          good += `${Math.floor(Math.random() * maxNum + 1)}번, `;
+        }
+        result.innerText = `당첨자 : ${good}`;
+        result.classList.add("show");
+      };
+      const handleDelete = (e) => {
+        result.innerText = "";
+        result.classList.remove("show");
+        seed.value = "";
+        total.value = "";
+      };
+
+      raffle.addEventListener("click", handleRaffle);
+      clear.addEventListener("click", handleDelete);
+    </script>
   </body>
 </html>
