@@ -29,3 +29,41 @@ book3.finish = function () {
 };
 console.log(book3);
 book3.finish();
+
+//생성자
+function Book(title, pages, done = false) {
+  this.title = title;
+  this.pages = pages;
+  this.done = done;
+  this.finish = function () {
+    let str = "";
+    !this.done ? (str = "읽는 중") : (str = "완독");
+    return str;
+  };
+}
+
+const nbook1 = new Book("웹 표준의 정석", 648);
+const nbook2 = new Book("점프 투 파이썬", 360, true);
+
+console.log(`${nbook1.title} - ${nbook1.pages}쪽 - ${nbook1.finish()}`);
+console.log(`${nbook2.title} - ${nbook2.pages}쪽 - ${nbook2.finish()}`);
+
+// 클래스 이용
+class Book2 {
+  constructor(title, pages, done) {
+    this.title = title;
+    this.pages = pages;
+    this.done = done;
+  }
+  finish = function () {
+    let str = "";
+    !this.done ? (str = "읽는 중") : (str = "완독");
+    return str;
+  };
+}
+
+// for ... in 사용 (key in nbook1)
+console.log(Object.keys(nbook1));
+console.log(Object.values(nbook1));
+console.log(Object.entries(nbook1));
+console.log(nbook1.__proto__); //프로토타입 객체 확인
