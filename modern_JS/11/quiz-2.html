@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로또 번호 생성기</title>
-  <style>
-    #container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
-    button {
-      width: 200px;
-      padding: 20px;
-      font-size: 1.2em;
-    }
-    #result {
-      padding: 20px;
-      font-size: 2.5em;
-      color:red;
-    }
-  </style>
-</head>
-<body>
-  <div id="container">
-    <h1>로또 번호 생성기</h1>   
-    <button>클릭</button> 
-    <div id="result"></div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 생성기</title>
+    <style>
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
+      button {
+        width: 200px;
+        padding: 20px;
+        font-size: 1.2em;
+      }
+      #result {
+        padding: 20px;
+        font-size: 2.5em;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>로또 번호 생성기</h1>
+      <button>클릭</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      //중복안되니까 Set 사용
+
+      const handleRottoCreate = () => {
+        const rottoNum = new Set();
+        while (rottoNum.size < 6) {
+          const number = Math.floor(Math.random() * 45 + 1);
+          rottoNum.add(number);
+        }
+        const result = document.getElementById("result");
+        let str = "";
+        for (let num of rottoNum.values()) {
+          str += `${num} ,`;
+        }
+        result.innerHTML = `<span>${str.slice(0, -2)}</span>`;
+      };
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", handleRottoCreate);
+    </script>
+  </body>
 </html>
