@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습 문제 1</title>
+    <style>
+      #container {
+        width: 500px;
+        margin: 20px auto;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      table,
+      td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      td {
+        padding: 5px 10px;
+        font-size: 1.5em;
+      }
+      #result td:last-child {
+        background-color: #222;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>주어진 배열 : [2, 4, 6, 8, 10]</h1>
+      <hr />
+      <h1>원래 배열</h1>
+      <div id="origin"></div>
+
+      <h1>모든 값을 더한 배열</h1>
+      <div id="result"></div>
+    </div>
+    <script>
+      const origin = document.getElementById("origin");
+      const result = document.getElementById("result");
+
+      const arr = [2, 4, 6, 8, 10];
+      let addArr = [];
+      let pushValue = 0;
+      arr.forEach((v) => {
+        pushValue += v;
+        console.log(pushValue);
+      });
+      addArr = addArr.concat(arr, pushValue);
+      let str = "";
+      arr.forEach((element) => {
+        str += `<td>${element}</td>`;
+      });
+      origin.innerHTML = `<table>${str}</table>`;
+
+      str = "";
+      addArr.forEach((element) => {
+        str += `<td>${element}</td>`;
+      });
+      result.innerHTML = `<table>${str}</table>`;
+    </script>
+  </body>
+</html>
