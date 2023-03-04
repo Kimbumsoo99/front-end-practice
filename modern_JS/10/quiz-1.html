@@ -46,22 +46,23 @@
       const arr = [2, 4, 6, 8, 10];
       let addArr = [];
       let pushValue = 0;
+
+      const innerElement = (node, arr1) => {
+        let str = "";
+        arr1.forEach((element) => {
+          str += `<td>${element}</td>`;
+        });
+        node.innerHTML = `<table><tr>${str}</tr></table>`;
+      };
+
       arr.forEach((v) => {
         pushValue += v;
         console.log(pushValue);
       });
       addArr = addArr.concat(arr, pushValue);
-      let str = "";
-      arr.forEach((element) => {
-        str += `<td>${element}</td>`;
-      });
-      origin.innerHTML = `<table>${str}</table>`;
 
-      str = "";
-      addArr.forEach((element) => {
-        str += `<td>${element}</td>`;
-      });
-      result.innerHTML = `<table>${str}</table>`;
+      innerElement(origin, arr);
+      innerElement(result, addArr);
     </script>
   </body>
 </html>
