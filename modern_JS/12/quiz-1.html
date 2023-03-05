@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 정보 가져오기</title>
+
     <style>
       body {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        border: 1px solid rgb(218, 203, 203);
+        height: auto;
+        margin: 25% 40%;
       }
     </style>
   </head>
@@ -21,5 +24,22 @@
 
       <div id="result"></div>
     </div>
+    <script>
+      const xhr = new XMLHttpRequest();
+      const result = document.getElementById("result");
+
+      xhr.open("GET", "https://reqres.in/api/products/10");
+      xhr.send();
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log(xhr);
+          const json = JSON.parse(xhr.responseText);
+          console.log(json);
+          result.innerHTML = `
+          <p>상품명: ${json.data.name}</p>
+          <p>생산년도: ${json.data.year}</p>`;
+        }
+      };
+    </script>
   </body>
 </html>
