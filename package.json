@@ -1,0 +1,23 @@
+{
+  "name": "front-end-practice",
+  "version": "1.0.0",
+  "description": "HTML, CSS 기초 연습",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kimbumsoo99/front-end-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kimbumsoo99/front-end-practice/issues"
+  },
+  "homepage": "https://github.com/Kimbumsoo99/front-end-practice#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.9"
+  }
+}
