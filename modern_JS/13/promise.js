@@ -43,16 +43,23 @@ const pizza2 = () => {
   });
 };
 
+// pizza
+//   .then((result) => console.log(result))
+//   .then(promiseChain)
+//   .catch((err) => console.error(err))
+//   .finally(() => console.log("완료"));
+
 pizza
   .then((result) => console.log(result))
   .then(promiseChain)
-  .catch((err) => console.error(err))
-  .finally(() => console.log("완료"));
-pizza2()
-  .then((result) => step1(result))
-  .then((result) => step2(result))
-  .then((result) => step3(result))
-  .then((result) => console.log(result))
-  .then(() => {
-    console.log("피자가 준비되었습니다.");
-  });
+  .then(() => console.log("첫번째 완료"))
+  .then((result) =>
+    pizza2(result)
+      .then(step1)
+      .then(step2)
+      .then(step3)
+      .then((result) => console.log(result))
+      .then(() => {
+        console.log("피자가 준비되었습니다.");
+      })
+  );
