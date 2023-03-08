@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="css/quotes.css" />
+  </head>
+  <body>
+    <div id="result">
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <script>
+      async function getQuotes() {
+        const response = await fetch("https://dummyjson.com/quotes");
+        const quotesJson = await response.json();
+
+        const quoteDiv = document.querySelector(".quote");
+        const authorDiv = document.querySelector(".author");
+
+        const quoteNum = Math.floor(Math.random() * quotesJson.quotes.length);
+
+        console.log(quotesJson.quotes[quoteNum].quote);
+        quoteDiv.innerHTML = `<p>${quotesJson.quotes[quoteNum].quote}</p>`;
+        authorDiv.innerHTML = `<p>- ${quotesJson.quotes[quoteNum].author}</p>`;
+      }
+
+      getQuotes();
+    </script>
+  </body>
+</html>
