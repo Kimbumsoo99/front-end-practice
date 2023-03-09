@@ -32,6 +32,41 @@
       // radians = (Math.PI/180) * degree
       // 75도를 라디안으로 바꾸기 위해서는
       // radians = (Math.PI/180) * 75
+
+      // 사각형 제외한 삼각형이나 원은 메서드 제공이 없어 직접 그려야함.
+      ctx.beginPath();
+      ctx.moveTo(50, 400);
+      ctx.lineTo(150, 450);
+      ctx.lineTo(50, 500);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(150, 400);
+      ctx.lineTo(250, 350);
+      ctx.lineTo(250, 450);
+      ctx.closePath();
+      ctx.fillStyle = "#0000ff";
+      ctx.fill();
+
+      //원
+      ctx.fillStyle = "yellow";
+      ctx.strokeStyle = "red";
+
+      ctx.beginPath();
+      ctx.arc(500, 150, 100, 0, Math.PI * 2, true); //0~360도까지 경로를 만듬
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(500, 360, 100, 0, (Math.PI / 180) * 180, true); //0~360도까지 경로를 만듬
+      ctx.arc(500, 360, 100, 0, (Math.PI / 180) * 180, false); //0~360도까지 경로를 만듬
+      ctx.closePath();
+      ctx.stroke();
+
+      // 이외에도 타원을 만드는 ellipse와
+      // 원을 변형하기 위해 scale을 통해 가로, 세로 크기 조절을 할 수도 있음
     </script>
   </body>
 </html>
