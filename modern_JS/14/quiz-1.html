@@ -9,6 +9,22 @@
   <body>
     <h1>별 그리기</h1>
     <canvas width="400" height="400"></canvas>
-    <script></script>
+    <script>
+      const canvas = document.querySelector("canvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.beginPath();
+      ctx.moveTo(100, 140);
+      ctx.lineTo(400, 140);
+      ctx.lineTo(160, 360);
+      ctx.lineTo(250, 20);
+      ctx.lineTo(340, 360);
+
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+    </script>
   </body>
 </html>
