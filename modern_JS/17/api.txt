@@ -6,4 +6,22 @@ localStroage
 
 두 개는 JSON 형태로 파일 저장
 
+geolocation을 사용하면 사용자의 위치가 나타나기 때문에
+http가 아닌 https에서 사용된다. (안그러면 오류남)
 
+geolocation의 메서드
+getCurrentPosition(successCallback[,errorCallback, options])
+옵션
+enableHighAccuracy => 위치 정보 정확도 향상 여부
+maximumAge => 위치 정보 유효 기간
+timeout => 위치 정보 확인 시간 제한
+
+위 getCurrentPosition() 을 사용하면 position 객체를 받는데 이때 저장되는 정보(읽기 전용)
+address.country         => 주소 중 국가
+address.city            => 주소 중 시
+address.postalCode      => 주소 중 우편번호  
+address.street          => 주소 중 거리 이름
+coords.latitude         => 위치의 경도
+coords.longitude        => 위치의 위도
+coords.speed            => 이동 중일 경우의 사용자 속도 m/s
+timestamp               => 위치 정보 가져온 시간
