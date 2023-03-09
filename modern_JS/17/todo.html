@@ -79,8 +79,28 @@
         todoInput.value = "";
       };
 
+      const manageTodo = (e) => {
+        const whichBtn = e.target.classList[0];
+        if (whichBtn === "check-btn") {
+          const todo = e.target.parentElement;
+          todo.children[0].classList.toggle("checked");
+        } else if (whichBtn === "delete-btn") {
+          const todo = e.target.parentElement;
+          removeLocal(todo);
+          todo.remove();
+        }
+      };
+
+      const removeLocal = (todo) => {
+        const todos = getStorageItem("todos");
+        const index = todos.indexOf(todo.children[0].innerText);
+        todos.splice(index, 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+      };
+
       document.addEventListener("DOMContentLoaded", getLocal);
       addButton.addEventListener("click", addTodo);
+      todoList.addEventListener("click", manageTodo);
     </script>
   </body>
 </html>
