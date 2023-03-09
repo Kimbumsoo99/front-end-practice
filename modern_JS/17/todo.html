@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List 만들기</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>오늘의 할 일</h1>
+    </header>
+    <form>
+      <label for="todo-input">할 일</label>
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="할 일을 입력하세요"
+        required
+        autocomplete="off"
+      />
+      <button id="add-button">추가</button>
+    </form>
+    <div id="container">
+      <ul id="todo-list"></ul>
+    </div>
+    <script>
+      const todoInput = document.querySelector("#todo-input");
+      const addButton = document.querySelector("#add-button");
+      const todoList = document.querySelector("#todo-list");
+
+      const addTodo = (event) => {
+        event.preventDefault();
+        addTodoInHTML(todoInput.value);
+        //스토리지 저장
+        saveToLocal(todoInput.value);
+      };
+
+      const saveToLocal = (todo) => {
+        const todos = getStorageItem("todos");
+
+        todos.push(todo);
+        localStorage.setItem("todos", JSON.stringify(todos));
+      };
+
+      const getLocal = () => {
+        const todos = getStorageItem("todos");
+
+        todos.forEach((todo) => {
+          addTodoInHTML(todo);
+        });
+      };
+
+      const getStorageItem = (key) => {
+        if (localStorage.getItem(key) === null) return [];
+        else return JSON.parse(localStorage.getItem(key));
+      };
+
+      const addTodoInHTML = (text) => {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("todo");
+        const newTodo = document.createElement("li");
+        newTodo.innerText = text;
+        newTodo.classList.add("todo-content");
+        newDiv.appendChild(newTodo);
+
+        const checkBtn = document.createElement("button");
+        checkBtn.innerText = "✔";
+        checkBtn.classList.add("check-btn");
+        newDiv.appendChild(checkBtn);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "❌";
+        deleteBtn.classList.add("delete-btn");
+        newDiv.appendChild(deleteBtn);
+
+        todoList.appendChild(newDiv);
+        todoInput.value = "";
+      };
+
+      document.addEventListener("DOMContentLoaded", getLocal);
+      addButton.addEventListener("click", addTodo);
+    </script>
+  </body>
+</html>

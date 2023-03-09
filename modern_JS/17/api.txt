@@ -1,0 +1,9 @@
+API 자료
+https://developer.mozilla.org/ko/docs/Web/API
+
+sessionStroage
+localStroage
+
+두 개는 JSON 형태로 파일 저장
+
+

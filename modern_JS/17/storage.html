@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 스토리지 연습</title>
+  </head>
+  <body>
+    <script>
+      const students = ["Kim", "Lee", "Park"];
+      console.log(`현재 students : ${students}`);
+      // 스토리지 저장
+      localStorage.setItem("students", JSON.stringify(students));
+
+      // 스토리지 가져와 사용
+      let localData;
+      if (localStorage.getItem("students") === null) {
+        localData = [];
+      } else {
+        localData = JSON.parse(localStorage.getItem("students"));
+      }
+      localData.push("Choi");
+      localStorage.setItem("students", JSON.stringify(localData));
+
+      console.log(`추가 후 students : ${localData}`);
+
+      // 스토리지 값 삭제
+      const indexOfValue = localData.indexOf("Lee");
+      localData.splice(indexOfValue, 1);
+      localStorage.setItem("students", JSON.stringify(localData));
+      console.log(`삭제 후 students : ${localData}`);
+
+      // 웹브라우저에서 제거
+      localStorage.removeItem("students");
+    </script>
+  </body>
+</html>
