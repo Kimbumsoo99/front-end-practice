@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Kimbumsoo99/front-end-practice#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "node-fetch": "^2.6.9"
   }
 }
